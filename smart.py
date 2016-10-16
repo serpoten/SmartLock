@@ -75,59 +75,59 @@ while continue_reading:
 
         if UIDcode == sergio or UIDcode == tag or UIDcode == card:
             if locked == '0' or adminpriv == 1:
-                GPIO.setup(12, GPIO.OUT)
-				# Yelloe LED ON
-				GPIO.output(12,GPIO.HIGH)
-				
-				# MQTT send OPEN= "on"
-				mqttc.publish("test/test", "on")
-				
-				print "Door open"				
-				time.sleep(3)               			
+		GPIO.setup(12, GPIO.OUT)
+		# Yelloe LED ON
+		GPIO.output(12,GPIO.HIGH)
+			
+		# MQTT send OPEN= "on"
+		mqttc.publish("test/test", "on")
+		
+		print "Door open"				
+		time.sleep(3)               			
                 print "Finished"
-				
-				# Yellow LED OFF
-				GPIO.output(12,GPIO.LOW)
+			
+		# Yellow LED OFF
+		GPIO.output(12,GPIO.LOW)
             else:
                 print "Door locked"
 				
-				# RED Blinking = Door LOCKED
+		# RED Blinking = Door LOCKED
 				
-				GPIO.setup(16, GPIO.OUT)
-				GPIO.output(16,GPIO.HIGH)
-				time.sleep(0.5)
-				GPIO.output(16,GPIO.LOW)
-				time.sleep(0.5)
-				GPIO.output(16,GPIO.HIGH)
-				time.sleep(0.5)
-				GPIO.output(16,GPIO.LOW)
-				time.sleep(0.5)
-				# MQTT send OPEN= "off"
-				mqttc.publish("test/test", "off")
+		GPIO.setup(16, GPIO.OUT)
+		GPIO.output(16,GPIO.HIGH)
+		time.sleep(0.5)
+		GPIO.output(16,GPIO.LOW)
+		time.sleep(0.5)
+		GPIO.output(16,GPIO.HIGH)
+		time.sleep(0.5)
+		GPIO.output(16,GPIO.LOW)
+		time.sleep(0.5)
+		# MQTT send OPEN= "off"
+		mqttc.publish("test/test", "off")
 				
 				
         elif UIDcode == lockcard:
             counter = 0
             if locked == '0':
                 while counter <> 5:
-                    GPIO.setup(12, GPIO.OUT)
-                    time.sleep(0.05)
-					GPIO.output(12,GPIO.HIGH)
-                    time.sleep(0.05)
-					GPIO.output(12,GPIO.LOW)
-                    counter = counter + 1
-                locked = 1
-                time.sleep(3)
+			GPIO.setup(12, GPIO.OUT)
+                	time.sleep(0.05)
+			GPIO.output(12,GPIO.HIGH)
+                    	time.sleep(0.05)
+			GPIO.output(12,GPIO.LOW)
+                    	counter = counter + 1
+                	locked = 1
+                	time.sleep(3)
             else:
                 while counter <> 2:
                     GPIO.setup(12, GPIO.OUT)
-                    time.sleep(0.05)
-					GPIO.output(12,GPIO.HIGH)
-                    time.sleep(0.05)
-					GPIO.output(12,GPIO.LOW)
-                    counter = counter + 1
-                locked = 0
-                time.sleep(3)
+                    	time.sleep(0.05)
+			GPIO.output(12,GPIO.HIGH)
+                    	time.sleep(0.05)
+			GPIO.output(12,GPIO.LOW)
+                    	counter = counter + 1
+                	locked = 0
+                	time.sleep(3)
 
             fh = open('status.txt', 'w')
             fh.write(str(locked))
@@ -135,11 +135,11 @@ while continue_reading:
 
         else:
             print "Unrecognised Card"
-			# RED Blinking = Door CLOSED
+	# RED Blinking = Door CLOSED
 				
-				GPIO.setup(16, GPIO.OUT)
-				GPIO.output(16,GPIO.HIGH)
-				time.sleep(5)
-				
-				# MQTT send OPEN= "off"
-				mqttc.publish("test/test", "off")
+	GPIO.setup(16, GPIO.OUT)
+	GPIO.output(16,GPIO.HIGH)
+	time.sleep(5)
+			
+	# MQTT send OPEN= "off"
+	mqttc.publish("test/test", "off")
