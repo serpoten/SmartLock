@@ -1,1 +1,0 @@
-Need the RFID-RC522 repository and download paho for raspberry
