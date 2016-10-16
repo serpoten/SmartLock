@@ -109,7 +109,7 @@ while continue_reading:
         elif UIDcode == lockcard:
             counter = 0
             if locked == '0':
-                while counter <> 5:
+                while counter <> 2:
 			GPIO.setup(12, GPIO.OUT)
                 	time.sleep(0.05)
 			GPIO.output(12,GPIO.HIGH)
@@ -117,9 +117,9 @@ while continue_reading:
 			GPIO.output(12,GPIO.LOW)
                     	counter = counter + 1
                 	locked = 1
-                	time.sleep(3)
+                	time.sleep(2)
             else:
-                while counter <> 2:
+                while counter <> 4:
                     GPIO.setup(12, GPIO.OUT)
                     	time.sleep(0.05)
 			GPIO.output(12,GPIO.HIGH)
@@ -133,13 +133,13 @@ while continue_reading:
             fh.write(str(locked))
             fh.close()
 
-        else:
-            print "Unrecognised Card"
-	# RED Blinking = Door CLOSED
+	else:
+		print "Unrecognised Card"
+		# RED Blinking = Door CLOSED
 				
-	GPIO.setup(16, GPIO.OUT)
-	GPIO.output(16,GPIO.HIGH)
-	time.sleep(5)
+		GPIO.setup(16, GPIO.OUT)
+		GPIO.output(16,GPIO.HIGH)
+		time.sleep(5)
 			
-	# MQTT send OPEN= "off"
-	mqttc.publish("test/test", "off")
+		# MQTT send OPEN= "off"
+		mqttc.publish("test/test", "off")
