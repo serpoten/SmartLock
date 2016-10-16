@@ -2,7 +2,10 @@
 Project for Home & Building Automation Course
 
 
-Most of the code has been taken from other Git repositories.
+Most of the code has been taken from other Git repositories. 
+ - cameronkempster/RasPiDoorLock
+ - ulno/micropython-extra-ulno
+
 
 In order to be able to run the provided code you will need,
 
