@@ -20,10 +20,10 @@ import paho.mqtt.client as mqtt
 
 # Card Register
 
-sergio = '2535271213'# White card
-lockcard = '1119146248' #My Fh card
-tag = '11821512565' #Blue Tag
-card = '11111111111'
+sergio = ''# White card
+lockcard = '' #My Fh card
+tag = '' #Blue Tag
+card = ''
 
 #GPIO setup
 
