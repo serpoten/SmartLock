@@ -27,7 +27,7 @@ card = '11111111111'
 
 #Initial condition of the Lock card = Closed
 
-locked= "1"
+locked= '1'
 
 #GPIO setup
 
@@ -119,7 +119,7 @@ while continue_reading:
 		time.sleep(0.05)
 		GPIO.output(12,GPIO.LOW)
 		#counter = counter + 1
-		locked = 1
+		locked = '1'
 		time.sleep(1)
 				
             else:
@@ -130,7 +130,7 @@ while continue_reading:
 		time.sleep(0.05)
 		GPIO.output(12,GPIO.LOW)
 		#counter = counter + 1
-		locked = 0
+		locked = '0'
 		time.sleep(1)
 
             fh = open('status.txt', 'w')
